@@ -1,0 +1,18 @@
+body {
+    padding: 0px 50px;
+}
+
+.barra {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: aqua;
+    margin-bottom: 1000px;
+}
+
+p {
+    background-color: #22222250;
+    
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
