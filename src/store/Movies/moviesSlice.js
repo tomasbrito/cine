@@ -5,7 +5,8 @@ export const moviesSlice = createSlice({
     initialState: {
         moviesList: [],
         isLoadingMovies: false,
-        actualMovie: {}
+        actualMovie: {},
+        lastBuy: {}
 },
     reducers: {
         setMovies: (state, action ) => {
@@ -19,8 +20,12 @@ export const moviesSlice = createSlice({
         setActualMovie: (state, action) => {
             state.actualMovie = action.payload
             state.isLoadingMovies = false
+        },
+        setLastBuy: (state, action) => {
+            console.log('buy ticjets en slice')
+            state.lastBuy = action.payload
         }
 
     }
 });
-export const { setMovies, loadingMovies, setActualMovie } = moviesSlice.actions;
+export const { setMovies, loadingMovies, setActualMovie, setLastBuy } = moviesSlice.actions;

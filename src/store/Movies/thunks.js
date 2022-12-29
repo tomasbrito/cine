@@ -1,6 +1,7 @@
-import { loadingMovies, setActualMovie, setMovies } from "./moviesSlice"
+import { loadingMovies, setActualMovie, setLastBuy, setMovies } from "./moviesSlice"
 import { loadMovies } from '../../helpers/loadMovies'
 import { getMovieByTitle } from "../../helpers/getMovieByTitle"
+import { buyTickets } from "../../helpers/buyTickets"
 
 export const startGetMovies = () => {
     return async (dispatch) => {
@@ -18,4 +19,13 @@ export const startGetMovieByTitle = ({title}) => {
         const resp = await getMovieByTitle(title)
         dispatch(setActualMovie(resp))
     }
+}
+
+export const startBuyTickets = ({nTickets}) => {
+    return async (dispatch , state) => {
+        const resp = await buyTickets(state().movies.actualMovie, nTickets)
+        //if(!resp.ok) return
+        console.log('resp en thunks ' + resp)
+        //dispatch(setLastBuy(resp))
+    } 
 }
