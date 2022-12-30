@@ -24,8 +24,13 @@ export const startGetMovieByTitle = ({title}) => {
 export const startBuyTickets = ({nTickets}) => {
     return async (dispatch , state) => {
         const resp = await buyTickets(state().movies.actualMovie, nTickets)
-        //if(!resp.ok) return
-        console.log('resp en thunks ' + resp)
-        //dispatch(setLastBuy(resp))
+        if(!resp.ok) return dispatch(setLastBuy(resp)) ;
+        const lastBuy = {
+            movieId : resp.actualMovie.id,
+            movieTitle: resp.actualMovie.title,
+            tickets: resp.nTickets
+        }
+
+        dispatch(setLastBuy(lastBuy))
     } 
 }

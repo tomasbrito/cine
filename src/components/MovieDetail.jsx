@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { buyTickets } from "../helpers/buyTickets"
 import { startBuyTickets, startGetMovieByTitle } from "../store/Movies/thunks"
+import { ErrorWarning } from "./ErrorWarning"
 
 export const MovieDetail = () => {
 
@@ -11,7 +12,7 @@ export const MovieDetail = () => {
   const dispatch = useDispatch()
   const [nTickets, setNTickets] = useState(1)
 
-  const { actualMovie } = useSelector(state => state.movies)
+  const { actualMovie, lastBuy } = useSelector(state => state.movies)
 
   console.log(actualMovie)
 
@@ -69,6 +70,7 @@ export const MovieDetail = () => {
                     <option>6</option>
                   </select>
                 </div>
+                {(lastBuy.errorMessage) ? <ErrorWarning message={lastBuy.errorMessage} /> : <></>}
                 <button
                   className="btn btn-primary"
                   onClick={onBuyClick}>

@@ -22,7 +22,6 @@ export const moviesSlice = createSlice({
             state.isLoadingMovies = false
         },
         setLastBuy: (state, action) => {
-            console.log('buy ticjets en slice')
             state.lastBuy = action.payload
         }
 

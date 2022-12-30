@@ -8,8 +8,6 @@ export const AppRouter = () => {
 
     const { isLoadingMovies } = useSelector((state) => state.movies)
 
-    console.log(isLoadingMovies)
-
     return (
         <>
 
