@@ -11,7 +11,7 @@ body {
 }
 
 p {
-    background-color: #22222250;
+    /* background-color: #22222250; */
     
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);

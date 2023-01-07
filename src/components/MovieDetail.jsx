@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { buyTickets } from "../helpers/buyTickets"
 import { startBuyTickets, startGetMovieByTitle } from "../store/Movies/thunks"
+import { BuyTickets } from "./BuyTickets"
 import { ErrorWarning } from "./ErrorWarning"
 
 export const MovieDetail = () => {
@@ -25,7 +25,8 @@ export const MovieDetail = () => {
   }, [])
 
   const onBuyClick = () => {
-    console.log(nTickets + ' tickets bought')
+    const title = actualMovie.title
+    navigate(`/tickets/${title}`)
     dispatch(startBuyTickets({ nTickets }))
   }
 
@@ -45,40 +46,58 @@ export const MovieDetail = () => {
       </div>
 
 
-      <div className="col animate__animated animate__fadeIn mt-2">
-        <div className="card">
-          <div className="row no-gutters">
+      <div className="container mt-2">
+        <div className="row">
 
-            <div className="col-4">
-              <img src={actualMovie.imgURL} className="card-img" alt={actualMovie.title} />
-            </div>
+          {/* Movie's image */}
+          <div className="col-12 col-md-4">
+            <img src={actualMovie.imgURL} className="card-img" alt={actualMovie.title} />
+          </div>
 
-            <div className="col-8">
-              <div className="card-body">
+          {/* Movie's data */}
+          <div className="col-12 col-md-8">
+            <h1 className="animate__animated animate__fadeIn display-4">{title}</h1>
 
-                <h5 className="card-title">{actualMovie.title}</h5>
-                <p className="bg-white">{actualMovie.tickets}</p>
+            {/* Tabs */}
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="sinopsis-tab" data-bs-toggle="tab" data-bs-target="#sinopsis" type="button"
+                  role="tab" aria-controls="sinopsis" aria-selected="true">Sinopsis</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                  role="tab" aria-controls="profile" aria-selected="false">Datos</button>
+              </li>
+            </ul>
 
-                <div className="mb-3 form-group">
-                  <label form="exampleFormControlSelect1">Tickets</label>
-                  <select className="form-control" onChange={onTicketsChange} id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                  </select>
-                </div>
-                {(lastBuy.errorMessage) ? <ErrorWarning message={lastBuy.errorMessage} /> : <></>}
-                <button
-                  className="btn btn-primary"
-                  onClick={onBuyClick}>
-                  Buy tickets
-                </button>
+            <div className="tab-content mt-3" id="myTabContent">
+              {/* sinopsis */}
+              <div className="tab-pane fade show active" id="sinopsis" role="tabpanel" aria-labelledby="sinopsis-tab">
+                <p className="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, est nostrum ipsum quo magnam impedit minima ab beatae obcaecati, veritatis amet vero doloribus autem fugiat hic veniam praesentium rem repudiandae.</p>
+              </div>
+              {/* data */}
+              <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <ul className="list-unstyled">
+                  <li><strong>Director:</strong> Carine Tardieu</li>
+                  <li><strong>Género:</strong> Romance, Drama</li>
+                  <li><strong>Duración:</strong> 113 min.</li>
+                  <li><strong>Calificación:</strong> P-13</li>
+                  <li><strong>Origen:</strong> Belgica, Francia</li>
+
+                </ul>
 
               </div>
             </div>
+
+
+
+            {/* //comprar tickets */}
+            <button
+                className="btn btn-primary"
+                onClick={onBuyClick}>
+                Buy tickets
+              </button>
+
           </div>
         </div>
       </div>
