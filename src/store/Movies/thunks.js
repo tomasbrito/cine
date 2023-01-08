@@ -28,7 +28,7 @@ export const startBuyTickets = ({nTickets}) => {
         const lastBuy = {
             movieId : resp.actualMovie.id,
             movieTitle: resp.actualMovie.title,
-            tickets: resp.nTickets
+            nTickets: resp.nTickets
         }
 
         dispatch(setLastBuy(lastBuy))

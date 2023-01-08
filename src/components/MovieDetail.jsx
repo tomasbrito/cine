@@ -2,15 +2,13 @@ import { useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import { startBuyTickets, startGetMovieByTitle } from "../store/Movies/thunks"
-import { BuyTickets } from "./BuyTickets"
-import { ErrorWarning } from "./ErrorWarning"
 
 export const MovieDetail = () => {
 
   const navigate = useNavigate()
   const { title } = useParams()
   const dispatch = useDispatch()
-  const [nTickets, setNTickets] = useState(1)
+
 
   const { actualMovie, lastBuy } = useSelector(state => state.movies)
 
@@ -27,12 +25,10 @@ export const MovieDetail = () => {
   const onBuyClick = () => {
     const title = actualMovie.title
     navigate(`/tickets/${title}`)
-    dispatch(startBuyTickets({ nTickets }))
+    //dispatch(startBuyTickets({ nTickets }))
   }
 
-  const onTicketsChange = (event) => {
-    setNTickets(event.target.value)
-  }
+  
 
 
   return (
@@ -59,13 +55,13 @@ export const MovieDetail = () => {
             <h1 className="animate__animated animate__fadeIn display-4">{title}</h1>
 
             {/* Tabs */}
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="sinopsis-tab" data-bs-toggle="tab" data-bs-target="#sinopsis" type="button"
+            <ul className="nav nav-tabs" id="myTab" role="tablist">
+              <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="sinopsis-tab" data-bs-toggle="tab" data-bs-target="#sinopsis" type="button"
                   role="tab" aria-controls="sinopsis" aria-selected="true">Sinopsis</button>
               </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
                   role="tab" aria-controls="profile" aria-selected="false">Datos</button>
               </li>
             </ul>

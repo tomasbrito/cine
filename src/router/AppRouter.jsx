@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { MovieDetail, Movies, NotFounded, Topbar } from "../components"
-import { BuyTickets } from "../components/BuyTickets"
+import { BuyTickets } from "../pages/BuyTickets"
 import { Loader } from "../components/Loader"
 
 

@@ -16,3 +16,13 @@ p {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
 }
+
+.alto{
+    height: 500px;
+}
+
+td{
+    width: 32px;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    height: 32px;
+}
