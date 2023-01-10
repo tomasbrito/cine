@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { MovieDetail, Movies, NotFounded, Topbar } from "../components"
-import { BuyTickets } from "../pages/BuyTickets"
+
 import { Loader } from "../components/Loader"
+import { BuyTickets } from "../Tickets/pages/BuyTickets"
+import { TicketsRouter } from "../Tickets/router/TicketsRouter"
 
 
 export const AppRouter = () => {
@@ -18,7 +20,8 @@ export const AppRouter = () => {
                 <Routes>
                     <Route path="/Movies" element={<Movies />} />
                     <Route path="/MovieDetail/:title" element={<MovieDetail />} />
-                    <Route path="/Tickets/:title" element={<BuyTickets />} />
+                    <Route path="/tickets/*" element={<TicketsRouter/>} />
+
                     <Route path="/" element={<Navigate to={'/Movies'} />} />
                     <Route path="/*" element={<NotFounded />} />
                 </Routes>

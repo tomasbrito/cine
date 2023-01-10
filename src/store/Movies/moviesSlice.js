@@ -24,10 +24,6 @@ export const moviesSlice = createSlice({
         setLastBuy: (state, action) => {
             state.lastBuy = action.payload
         },
-        setNTicketsToBuy: (state, action) => {
-            state.lastBuy = {nTickets : action.payload, ...state.lastBuy}
-        }
-
     }
 });
-export const { setMovies, loadingMovies, setActualMovie, setLastBuy, setNTicketsToBuy } = moviesSlice.actions;
+export const { setMovies, loadingMovies, setActualMovie, setLastBuy,} = moviesSlice.actions;

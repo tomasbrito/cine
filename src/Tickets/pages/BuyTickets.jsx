@@ -7,11 +7,7 @@ export const BuyTickets = () => {
     const nTickets = useSelector(state => state.movies.lastBuy.nTickets)
     return (
         <>
-            {
-                (!nTickets) ? <SelectTickets /> : <SelectSeats />
-            }
-
-
+            asd
         </>
     )
 }

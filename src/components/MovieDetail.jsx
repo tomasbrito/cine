@@ -15,7 +15,7 @@ export const MovieDetail = () => {
   console.log(actualMovie)
 
   const onBackClick = () => {
-    navigate(-1)
+    navigate('/movies')
   }
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const MovieDetail = () => {
 
   const onBuyClick = () => {
     const title = actualMovie.title
-    navigate(`/tickets/${title}`)
+    navigate(`/tickets/${title}/tickets`)
     //dispatch(startBuyTickets({ nTickets }))
   }
 
