@@ -18,7 +18,7 @@ p {
 }
 
 .alto {
-    height: 500px;
+    height: 600px;
 }
 
 td {
@@ -33,6 +33,7 @@ td {
 footer{
     height: 80px;
     background-color: gray;
+    margin-top: 100vh;
 }
 
 h6 {
@@ -42,4 +43,9 @@ h6 {
 .seat{
     height: 20px;
     width: 20px;
+}
+
+.seats{
+    height: 400px;
+    background-color: blueviolet;
 }

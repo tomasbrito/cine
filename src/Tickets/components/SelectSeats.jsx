@@ -6,6 +6,10 @@ import { setTicketsSlice } from "../../store/Tickets/ticketsSlice"
 
 
 //discontinuada (unificada en select Tickets)
+//discontinuada (unificada en select Tickets)
+//discontinuada (unificada en select Tickets)
+//discontinuada (unificada en select Tickets)
+//discontinuada (unificada en select Tickets)
 export const SelectSeats = () => {
 
     const navigate = useNavigate()

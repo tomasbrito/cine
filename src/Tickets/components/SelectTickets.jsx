@@ -55,13 +55,13 @@ export const SelectTickets = () => {
     return (
         <>
 
-            <div className="container alto">
-                <div className="row justify-content-center align-items-center alto bg-secondary">
-                    <div className="col-12 col-md-5 align-self-start">
+            <div className="container-fluid bg-secondary">
+                <div className="row justify-content-center align-items-center alto">
+                    <div className="col-12 col-md-4 align-self-start">
                         <div className="comprar mt-3">
                             <div className="mb-3 form-group">
                                 <div className="row justify-content-start">
-                                    <div className="col-12 col-md-10 bg-info">
+                                    <div className="col-12 col-md-12 bg-info">
                                         <h2>Seats</h2>
                                         <div className="col-2">
                                             <label form="exampleFormControlSelect1">Tickets</label>
@@ -91,13 +91,14 @@ export const SelectTickets = () => {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-6 overflow-auto">
+                    <div className="col-12 col-md-7  overflow-auto">
                         <Seats />
                     </div>
 
 
                 </div>
-                <div className="row justify-content-end">
+
+                <div className="row justify-content-end bg-secondary">
                     <div className="col-12 col-md-1 d-grid">
                         <button
                             onClick={onNextClick}
@@ -109,12 +110,8 @@ export const SelectTickets = () => {
                     </div>
                 </div>
 
+
             </div>
-
-
-
-
-
 
 
 

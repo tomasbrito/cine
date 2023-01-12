@@ -26,7 +26,6 @@ export const AppRouter = () => {
                     <Route path="/" element={<Navigate to={'/Movies'} />} />
                     <Route path="/*" element={<NotFounded />} />
                 </Routes>
-                <hr />
                 <Footer/>
 
             </>}
