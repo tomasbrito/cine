@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes } from "react-router-dom"
 import { MovieDetail, Movies, NotFounded, Topbar } from "../components"
+import { Footer } from "../components/Footer"
 
 import { Loader } from "../components/Loader"
 import { BuyTickets } from "../Tickets/pages/BuyTickets"
@@ -25,7 +26,8 @@ export const AppRouter = () => {
                     <Route path="/" element={<Navigate to={'/Movies'} />} />
                     <Route path="/*" element={<NotFounded />} />
                 </Routes>
-
+                <hr />
+                <Footer/>
 
             </>}
 

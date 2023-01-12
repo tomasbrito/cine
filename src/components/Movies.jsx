@@ -10,22 +10,13 @@ export const Movies = () => {
 
   const { moviesList } = useSelector(state => state.movies)
 
-  const onClickGetmovies = () => {
-    dispatch(startGetMovies())
-  }
-
   useEffect(() => {
     dispatch(startGetMovies())
   }, [])
 
-
-
-
   return (
     <>
-      <button className="btn btn-primary" onClick={onClickGetmovies}>
-        getMovies
-      </button>
+
       <div className="row rows-cols-1 row-cols-md-6 g-3">
 
         {moviesList.map(movie => (
