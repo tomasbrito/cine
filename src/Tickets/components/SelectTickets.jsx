@@ -49,20 +49,20 @@ export const SelectTickets = () => {
         console.log(seats.length)
         console.log(nTickets + ' nTickets')
         navigate(`/tickets/${title}/pay`)
-        dispatch(setTicketsSlice({ seats, nTickets }))
+        //dispatch(setTicketsSlice({ seats, nTickets }))
     }
 
     return (
         <>
 
-            <div className="container-fluid bg-secondary">
-                <div className="row justify-content-center align-items-center alto">
-                    <div className="col-12 col-md-4 align-self-start">
+            <div className=" container-fluid  ">
+                <div className="row  probar align-items-center justify-content-center">
+                    <div className="col-12 col-lg-4 align-self-start ">
                         <div className="comprar mt-3">
                             <div className="mb-3 form-group">
-                                <div className="row justify-content-start">
-                                    <div className="col-12 col-md-12 bg-info">
+                                    <div className="col-12 col-md-12 ">
                                         <h2>Seats</h2>
+                                        {/* form tickets */}
                                         <div className="col-2">
                                             <label form="exampleFormControlSelect1">Tickets</label>
                                             <select className="form-select" onChange={onTicketsChange} id="exampleFormControlSelect1">
@@ -77,13 +77,9 @@ export const SelectTickets = () => {
                                         <hr />
                                         <div className='row pb-1 border border-dark justify-content-between text-center align-items-center '>
                                             <h2 className='text-start'>Selected</h2>
-                                            {seats.map(s => (
-                                                <SeatInfo seat={s} />
-                                            ))}
+                                            <SeatInfo />
                                         </div>
-
                                     </div>
-                                </div>
 
                             </div>
                             {/* {(lastBuy.errorMessage) ? <ErrorWarning message={lastBuy.errorMessage} /> : <></>} */}
@@ -91,25 +87,25 @@ export const SelectTickets = () => {
                         </div>
                     </div>
 
-                    <div className="col-12 col-md-7  overflow-auto">
+                    <div className=" col-12 col-md-7 my-3  overflow-auto">
                         <Seats />
                     </div>
 
 
                 </div>
 
-                <div className="row justify-content-end bg-secondary">
+                {/* //boton next */}
+                <div className="row justify-content-end  bg-dark">
                     <div className="col-12 col-md-1 d-grid">
                         <button
                             onClick={onNextClick}
-                            disabled={(seats.length < nTickets)}
+                            disabled={false} /* {(seats.length < nTickets)} */
                             className="btn  btn-primary d-block">
                             Next
                         </button>
 
                     </div>
                 </div>
-
 
             </div>
 

@@ -28,26 +28,27 @@ export const MovieDetail = () => {
     //dispatch(startBuyTickets({ nTickets }))
   }
 
-  
+
 
 
   return (
     <>
-      <div className="animate__animated animate__animated">
-        <button
-          onClick={onBackClick}
-          className="btn btn-primary">
-          Back to list</button>
 
-      </div>
 
 
       <div className="container mt-2">
-        <div className="row">
+        <div className="animate__animated animate__animated">
+          <button
+            onClick={onBackClick}
+            className="btn btn-primary">
+            Back to list</button>
+
+        </div>
+        <div className="row mb-3">
 
           {/* Movie's image */}
-          <div className="col-12 col-md-4">
-            <img src={actualMovie.imgURL} className="card-img" alt={actualMovie.title} />
+          <div className="col-6 col-md-4">
+            <img src={actualMovie.imgURL} className="card-img img-fluid" alt={actualMovie.title} />
           </div>
 
           {/* Movie's data */}
@@ -89,10 +90,10 @@ export const MovieDetail = () => {
 
             {/* //comprar tickets */}
             <button
-                className="btn btn-primary"
-                onClick={onBuyClick}>
-                Buy tickets
-              </button>
+              className="btn btn-primary"
+              onClick={onBuyClick}>
+              Buy tickets
+            </button>
 
           </div>
         </div>

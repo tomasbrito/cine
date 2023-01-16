@@ -14,9 +14,9 @@ export const MovieCard = ({ title, imgURL }) => {
 
     return (
         <>
-            <div className="animate__animated animate__fadeIn">
+            <div className="animate__animated animate__fadeIn mb-2">
                 <div className="card" onClick={onMovieClick} >
-                    <img className="card-img-top" src={imgURL} alt="Card image cap" />
+                    <img className="card-img-top img-fluid" src={imgURL} alt="Card image cap" />
                     <div className="card-body text-center p-1">
                         <p className="text-dark  p-0 m-0">{title} </p>
 

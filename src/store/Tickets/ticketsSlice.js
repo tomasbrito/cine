@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const ticketsSlice = createSlice({
     name: 'tickets',
     initialState: {
-        movie:{},
+        movie: {},
         nTickets: 1,
         seats: []
     },
@@ -10,7 +10,10 @@ export const ticketsSlice = createSlice({
         setTicketsSlice: (state, action) => {
             state.nTickets = action.payload.nTickets
             state.seats = action.payload.seats
+        },
+        setSeats: (state, action) => {
+            state.seats = [...state.seats, action.payload]
         }
     }
 });
-export const { setTicketsSlice } = ticketsSlice.actions;
+export const { setTicketsSlice, setSeats } = ticketsSlice.actions;

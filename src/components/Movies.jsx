@@ -17,7 +17,7 @@ export const Movies = () => {
   return (
     <>
 
-      <div className="row rows-cols-1 row-cols-md-6 g-3">
+      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
 
         {moviesList.map(movie => (
           <MovieCard key={movie.title} {...movie} />

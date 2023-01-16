@@ -18,7 +18,7 @@ p {
 }
 
 .alto {
-    height: 600px;
+    height: 700px;
 }
 
 td {
@@ -27,25 +27,28 @@ td {
     height: 32px;
 }
 
-.selected {
-}
+.selected {}
 
-footer{
-    height: 80px;
-    background-color: gray;
-    margin-top: 100vh;
-}
+
 
 h6 {
     margin: 0px;
 }
 
-.seat{
+.seat {
     height: 20px;
     width: 20px;
 }
 
-.seats{
-    height: 400px;
+.seats {
     background-color: blueviolet;
+}
+
+.probar {
+}
+
+@media (min-width: 992px) {
+    .probar {
+        height: 700px;
+    }
 }

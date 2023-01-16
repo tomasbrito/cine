@@ -6,7 +6,7 @@ export const PayTickets = () => {
 
   return (
     <>
-    asd
+    PAY 
         {
             seats.map(s => (
                 <h1 key={s}>{s}</h1>
