@@ -87,7 +87,7 @@ export const SelectTickets = () => {
                         </div>
                     </div>
 
-                    <div className=" col-12 col-md-7 my-3  overflow-auto">
+                    <div className=" col-12 col-md-7 my-3 p-3 overflow-auto">
                         <Seats />
                     </div>
 
