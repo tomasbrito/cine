@@ -53,6 +53,16 @@ h6 {
     }
 }
 
+.tarjeta{
+    height: 800px;
+}
+
+@media (min-width: 992px) {
+    .tarjeta {
+        height: 500px;
+    }
+}
+
 /* input numbers without arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

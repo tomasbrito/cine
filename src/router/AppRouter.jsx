@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer"
 import { Loader } from "../components/Loader"
 import { BuyTickets } from "../Tickets/pages/BuyTickets"
 import { TicketsRouter } from "../Tickets/router/TicketsRouter"
+import { Navbar } from "../ui/Navbar"
 
 
 export const AppRouter = () => {
@@ -17,7 +18,7 @@ export const AppRouter = () => {
 
             {(isLoadingMovies) ? <Loader /> : <>
 
-
+                <Navbar/>
                 <Routes>
                     <Route path="/Movies" element={<Movies />} />
                     <Route path="/MovieDetail/:title" element={<MovieDetail />} />
