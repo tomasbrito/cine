@@ -16,13 +16,15 @@ export const Movies = () => {
 
   return (
     <>
+      <div className="container">
 
-      <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
+        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
 
-        {moviesList.map(movie => (
-          <MovieCard key={movie.title} {...movie} />
-        ))}
+          {moviesList.map(movie => (
+            <MovieCard key={movie.title} {...movie} />
+          ))}
 
+        </div>
       </div>
     </>
   )

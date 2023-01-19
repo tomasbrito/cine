@@ -61,6 +61,7 @@ export const PayTickets = () => {
               <div className="col-6">
                 <h6 className="display-6 lead mb-2">{actualMovie.title}</h6>
                 <h6 className="mt-3 lead mb-1">17/01/2023</h6>
+                <h6 className="lead mb-1">18:00</h6>
                 <h6 className="lead mb-1">{seats.length} Tickets</h6>
                 <h6 className="lead mb-1">${1000 * seats.length}</h6>
               </div>

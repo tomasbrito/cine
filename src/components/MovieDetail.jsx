@@ -36,8 +36,8 @@ export const MovieDetail = () => {
 
 
 
-      <div className="container mt-2">
-        <div className="animate__animated animate__animated">
+      <div className="container mt-2 text-dark">
+        <div className=" mb-2 animate__animated animate__animated">
           <button
             onClick={onBackClick}
             className="btn btn-primary">
@@ -66,7 +66,7 @@ export const MovieDetail = () => {
                   role="tab" aria-controls="profile" aria-selected="false">Datos</button>
               </li>
             </ul>
-
+            {/* Tabs content */}
             <div className="tab-content mt-3" id="myTabContent">
               {/* sinopsis */}
               <div className="tab-pane fade show active" id="sinopsis" role="tabpanel" aria-labelledby="sinopsis-tab">
@@ -89,39 +89,39 @@ export const MovieDetail = () => {
 
 
             {/* //comprar tickets */}
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            <div className="accordion accordion-flush" id="accordionFlushExample">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="flush-headingOne">
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     Hoy
                   </button>
                 </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+                <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                     <button className="btn btn-primary">Buy</button>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="flush-headingTwo">
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                     Mañana
                   </button>
                 </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+                <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                     <button className="btn btn-primary">Buy</button>
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="flush-headingThree">
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                     17/01
                   </button>
                 </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+                <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                  <div className="accordion-body">
                     <button onClick={onBuyClick} className="btn btn-primary">Buy</button>
                   </div>
                 </div>

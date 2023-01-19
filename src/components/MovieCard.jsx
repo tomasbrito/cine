@@ -19,7 +19,6 @@ export const MovieCard = ({ title, imgURL }) => {
                     <img className="card-img-top img-fluid" src={imgURL} alt="Card image cap" />
                     <div className="card-body text-center p-1">
                         <p className="text-dark  p-0 m-0">{title} </p>
-
                     </div>
 
                 </div>
