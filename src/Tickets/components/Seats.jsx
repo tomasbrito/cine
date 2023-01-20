@@ -1,15 +1,43 @@
+import { configureStore } from "@reduxjs/toolkit"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setSeats } from "../../store/Tickets/ticketsSlice"
+import { setSeatsSelectedSlice } from "../../store/Tickets/ticketsSlice"
 
 export const Seats = () => {
 
-    const seats = useSelector(state => state.tickets)
+    const seatsSelectedSlice = useSelector(state => state.tickets)
     const dispatch = useDispatch()
+    const [counter, setCounter] = useState(0)
+    const [seats, setSeats] = useState([])
+
+    useEffect(() => {
+        console.log(seats)
+    }, [seats])
 
     const onSeatClick = (event) => {
-        const seat = event.target
-        seat.classList.add('bg-primary')
-        dispatch(setSeats(seat.getAttribute('name')))
+        const asiento = event.target
+
+
+        if (!asiento.classList.contains('bg-primary')) {
+            if ((counter >= 6)) return;
+            asiento.classList.add('bg-primary')
+            setCounter(counter + 1)
+            seats.push(asiento.getAttribute('name'))
+            const newSeats = [...seats]
+            setSeats(newSeats)
+            dispatch(setSeatsSelectedSlice(seats))
+        } else {
+            console.log('else')
+            console.log(seats)
+            asiento.classList.remove('bg-primary')
+            setCounter(counter - 1)
+            const i = seats.findIndex(s => s === asiento.getAttribute('name'))
+            console.log(asiento.getAttribute('name'))
+            const newSeats = seats.filter(s => s !== asiento.getAttribute('name'))
+            //setSeats(seats.filter(s => s !== asiento.getAttribute('name')))
+            setSeats([...newSeats])
+            dispatch(setSeatsSelectedSlice(seats))
+        }
     }
 
     return (

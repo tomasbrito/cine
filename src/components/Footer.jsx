@@ -5,13 +5,29 @@ export const Footer = () => {
         <>
 
             <div className="container-fluid footer text-light">
-                <div className="row text-center  p-4">
-                    <div className="col-12 ">
-                        <p className="display-6 mt-0">Lorem, ipsum.</p>
-                        <p className="m-0 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sint quod placeat esse debitis explicabo perspiciatis quam cumque et temporibus expedita, eaque ipsa consectetur consequuntur assumenda, rem, sapiente reprehenderit libero.</p>
+                <div className="row text-center align-items-center justify-content-between p-3">
+                    <div className="col-2 ">
+                        <i className="bi bi-film h2">Marca</i> 
+                    </div>
+                    <div className="col-3 ">
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                    </div>
+                    <div className="col-3 ">
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                        <a href="" className="text-decoration-none d-block">Link uno</a>
+                        <a href="" className="text-decoration-none d-block">Link uno</a>    
+                    </div>
+                    <div className="col-2">
+                        <i className="bi bi-instagram h3 mx-1"></i>
+                        <i className="bi bi-twitter h3 mx-1"></i>
+                        <i className="bi bi-facebook h3 mx-1"></i>
+                        <i className="bi bi-whatsapp h3 mx-1"></i>
                     </div>
                 </div>
-                
+
             </div>
         </>
     )

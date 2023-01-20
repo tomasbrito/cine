@@ -3,12 +3,12 @@ import { useSelector } from "react-redux"
 
 export const SeatInfo = ({ seat }) => {
 
-    const { seats } = useSelector(state => state.tickets)
+    const { seatsSelectedSlice } = useSelector(state => state.tickets)
 
     return (
         <>
             {
-                seats.map((s) => (<Fragment key={s}>
+                seatsSelectedSlice.map((s) => (<Fragment key={s}>
                     <div className="row m-1 align-items-center">
                         <div className="col-2">
                             <h6 className='border border-dark p-2' key={s}>{s}</h6>

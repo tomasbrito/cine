@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setMovies } from "../store/Movies/moviesSlice"
 import { startGetMovies } from "../store/Movies/thunks"
 import { MovieCard } from "./MovieCard"
 

@@ -4,16 +4,16 @@ export const ticketsSlice = createSlice({
     initialState: {
         movie: {},
         nTickets: 1,
-        seats: []
+        seatsSelectedSlice: []
     },
     reducers: {
         setTicketsSlice: (state, action) => {
             state.nTickets = action.payload.nTickets
             state.seats = action.payload.seats
         },
-        setSeats: (state, action) => {
-            state.seats = [...state.seats, action.payload]
+        setSeatsSelectedSlice: (state, action) => {
+            state.seatsSelectedSlice = action.payload
         }
     }
 });
-export const { setTicketsSlice, setSeats } = ticketsSlice.actions;
+export const { setTicketsSlice, setSeatsSelectedSlice } = ticketsSlice.actions;
