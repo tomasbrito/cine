@@ -1,38 +1,57 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { startGetSelected } from "../../store/Tickets/thunks"
 import { setSeatsSelectedSlice } from "../../store/Tickets/ticketsSlice"
 
 export const Seats = () => {
 
     const seatsSelectedSlice = useSelector(state => state.tickets)
+    const { unavailableSeats } = useSelector(state => state.tickets)
     const dispatch = useDispatch()
     const [counter, setCounter] = useState(0)
     const [seats, setSeats] = useState([])
 
+
+
     useEffect(() => {
-        console.log(seats)
+        dispatch(setSeatsSelectedSlice(seats))
     }, [seats])
+
+    useEffect(() => {
+        dispatch(startGetSelected())
+        setUnavailableSeats()
+    }, [unavailableSeats])
+
+
+
+    const setUnavailableSeats = () => {
+        if (unavailableSeats) {
+            unavailableSeats.forEach(element => {
+                const seat = document.getElementsByName(element)
+                seat[0].classList.add('selected')
+            });
+        }
+    }
+
+
 
     const onSeatClick = (event) => {
         const asiento = event.target
 
+        if (asiento.classList.contains('selected')) return
 
         if (!asiento.classList.contains('bg-primary')) {
             if ((counter >= 6)) return;
             asiento.classList.add('bg-primary')
             setCounter(counter + 1)
-            seats.push(asiento.getAttribute('name'))
-            const newSeats = [...seats]
+            const newSeats = [...seats, asiento.getAttribute('name')]
             setSeats(newSeats)
-            dispatch(setSeatsSelectedSlice(seats))
+
         } else {
-            console.log('else')
-            console.log(seats)
             asiento.classList.remove('bg-primary')
             setCounter(counter - 1)
-            const i = seats.findIndex(s => s === asiento.getAttribute('name'))
-            console.log(asiento.getAttribute('name'))
+            //const i = seats.findIndex(s => s === asiento.getAttribute('name'))
             const newSeats = seats.filter(s => s !== asiento.getAttribute('name'))
             //setSeats(seats.filter(s => s !== asiento.getAttribute('name')))
             setSeats([...newSeats])
@@ -115,15 +134,15 @@ export const Seats = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <div onClick={onSeatClick} name='E1'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E2'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E3'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E4'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E5'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E6'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E7'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E8'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='E9'  className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E1' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E2' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E3' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E4' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E5' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E6' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E7' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E8' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='E9' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='E10' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='E11' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='E12' className="d-inline border py-2 px-3 m-1 seat"></div>
@@ -132,15 +151,15 @@ export const Seats = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <div onClick={onSeatClick} name='F1'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F2'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F3'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F4'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F5'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F6'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F7'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F8'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='F9'  className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F1' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F2' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F3' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F4' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F5' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F6' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F7' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F8' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='F9' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='F10' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='F11' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='F12' className="d-inline border py-2 px-3 m-1 seat"></div>
@@ -149,15 +168,15 @@ export const Seats = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <div onClick={onSeatClick} name='G1'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G2'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G3'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G4'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G5'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G6'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G7'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G8'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='G9'  className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G1' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G2' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G3' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G4' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G5' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G6' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G7' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G8' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='G9' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='G10' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='G11' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='G12' className="d-inline border py-2 px-3 m-1 seat"></div>
@@ -166,15 +185,15 @@ export const Seats = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <div onClick={onSeatClick} name='H1'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H2'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H3'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H4'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H5'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H6'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H7'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H8'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='H9'  className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H1' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H2' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H3' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H4' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H5' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H6' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H7' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H8' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='H9' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='H10' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='H11' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='H12' className="d-inline border py-2 px-3 m-1 seat"></div>
@@ -183,15 +202,15 @@ export const Seats = () => {
             </div>
             <div className="row mt-4">
                 <div className="col-12">
-                    <div onClick={onSeatClick} name='I1'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I2'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I3'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I4'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I5'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I6'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I7'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I8'  className="d-inline border py-2 px-3 m-1 seat"></div>
-                    <div onClick={onSeatClick} name='I9'  className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I1' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I2' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I3' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I4' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I5' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I6' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I7' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I8' className="d-inline border py-2 px-3 m-1 seat"></div>
+                    <div onClick={onSeatClick} name='I9' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='I10' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='I11' className="d-inline border py-2 px-3 m-1 seat"></div>
                     <div onClick={onSeatClick} name='I12' className="d-inline border py-2 px-3 m-1 seat"></div>

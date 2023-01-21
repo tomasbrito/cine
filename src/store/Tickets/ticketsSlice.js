@@ -13,7 +13,10 @@ export const ticketsSlice = createSlice({
         },
         setSeatsSelectedSlice: (state, action) => {
             state.seatsSelectedSlice = action.payload
+        },
+        setUnavailableSeats: (state, action) => {
+            state.unavailableSeats = action.payload
         }
     }
 });
-export const { setTicketsSlice, setSeatsSelectedSlice } = ticketsSlice.actions;
+export const { setTicketsSlice, setSeatsSelectedSlice, setUnavailableSeats } = ticketsSlice.actions;

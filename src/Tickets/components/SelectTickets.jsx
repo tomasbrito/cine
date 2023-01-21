@@ -49,8 +49,6 @@ export const SelectTickets = () => {
     }
 
     const onNextClick = () => {
-        console.log(seats.length)
-        console.log(nTickets + ' nTickets')
         navigate(`/tickets/${title}/pay`)
         //dispatch(setTicketsSlice({ seats, nTickets }))
     }

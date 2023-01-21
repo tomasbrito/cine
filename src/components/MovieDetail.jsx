@@ -12,7 +12,6 @@ export const MovieDetail = () => {
 
   const { actualMovie, lastBuy } = useSelector(state => state.movies)
 
-  console.log(actualMovie)
 
   const onBackClick = () => {
     navigate('/movies')

@@ -10,7 +10,6 @@ export const moviesSlice = createSlice({
 },
     reducers: {
         setMovies: (state, action ) => {
-            console.log('set movies')
             state.isLoadingMovies = false
             state.moviesList = action.payload
         },

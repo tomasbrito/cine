@@ -84,3 +84,7 @@ input[type=number] {
 .title-card{
     background-color: rgba(0, 0, 0, 0.315);
 }
+
+.selected {
+    background-color: gray;
+}
