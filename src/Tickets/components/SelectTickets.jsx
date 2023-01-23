@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { setTicketsSlice } from '../../store/Tickets/ticketsSlice'
 import { SeatInfo } from '../../components/SeatInfo'
 import { Seats } from './Seats'
+import { useEffect } from 'react'
+import { startGetSelected } from '../../store/Tickets/thunks'
 
 
 export const SelectTickets = () => {
@@ -16,6 +18,7 @@ export const SelectTickets = () => {
     const navigate = useNavigate()
     const { title } = useParams()
 
+    console.log('render libre')
 
     // deprecated
     const onTicketsChange = (event) => {
@@ -57,6 +60,10 @@ export const SelectTickets = () => {
         navigate(-1)
     }
 
+    useEffect(() => {
+
+    }, [])
+
     return (
         <>
 
@@ -68,7 +75,7 @@ export const SelectTickets = () => {
                                 <div className="col-12 col-md-12 ">
                                     <h2>Seats</h2>
                                     {/* form tickets */}
-                                    
+
                                     <hr />
                                     <div className='row pb-1 border border-dark justify-content-between text-center align-items-center '>
                                         <h2 className='text-start'>Selected</h2>

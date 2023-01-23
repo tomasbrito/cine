@@ -5,7 +5,7 @@ export const startGetSelected =  () => {
     return async (dispatch, state) => {
         const resp = await getUnavailableSeats(state().movies.actualMovie)
         if(!resp.ok) return dispatch(setUnavailableSeats(resp))
-        const unavailableSeatss = resp.unavailableSeats
-        dispatch(setUnavailableSeats(unavailableSeatss))
+        const unavailableSeats = resp.unavailableSeats
+        dispatch(setUnavailableSeats(unavailableSeats))
     }
 }
