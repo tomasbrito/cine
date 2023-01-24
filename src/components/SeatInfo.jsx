@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 export const SeatInfo = ({ seat }) => {
 
     const { seatsSelectedSlice } = useSelector(state => state.tickets)
-    console.log('render seatinfo')
     return (
         <>
             {

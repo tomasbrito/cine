@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
+import { OrderConfirmation } from "../../pages/OrderConfirmation"
 import { PayTickets } from "../components/PayTickets"
-import { SelectSeats } from "../components/SelectSeats"
 import { SelectTickets } from "../components/SelectTickets"
 import { BuyTickets } from "../pages/BuyTickets"
 
@@ -10,8 +10,8 @@ export const TicketsRouter = () => {
 
             <Routes>
                 <Route path="/:title/tickets" element={<SelectTickets />} />
-                <Route path="/:title/seats" element={<SelectSeats />} />
                 <Route path="/:title/pay" element={<PayTickets />} />
+                <Route path="/confirmation" element={<OrderConfirmation />} />
             </Routes>
 
         </>

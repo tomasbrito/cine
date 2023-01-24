@@ -9,11 +9,9 @@ export const Seats = () => {
     const seatsSelectedSlice = useSelector(state => state.tickets)
     const dispatch = useDispatch()
     const { unavailableSeats } = useSelector(state => state.tickets)
-    console.log('asd ' + unavailableSeats)
     const [counter, setCounter] = useState(0)
     const [seats, setSeats] = useState([])
 
-    console.log('render seats')
 
     useEffect(() => {
         dispatch(setSeatsSelectedSlice(seats))
@@ -21,16 +19,15 @@ export const Seats = () => {
 
     useEffect(() => {
         dispatch(startGetSelected())
-        console.log('dispa efect ' + unavailableSeats)
     }, [])
-    
-    
+
+
     useEffect(() => {
         setUnavailableSeats()
-        console.log('unaaa efect ' + unavailableSeats)
     }, [unavailableSeats])
 
     const setUnavailableSeats = () => {
+        console.log(unavailableSeats)
         if (unavailableSeats) {
             unavailableSeats.forEach(element => {
                 const seat = document.getElementsByName(element)
@@ -45,7 +42,8 @@ export const Seats = () => {
         const asiento = event.target
 
         if (asiento.classList.contains('selected')) return
-        if (unavailableSeats.includes(asiento.getAttribute('name'))) return
+
+        if (unavailableSeats && unavailableSeats.includes(asiento.getAttribute('name'))) return
 
         if (!asiento.classList.contains('bg-primary')) {
             if ((counter >= 6)) return;

@@ -4,7 +4,8 @@ export const ticketsSlice = createSlice({
     initialState: {
         movie: {},
         nTickets: 1,
-        seatsSelectedSlice: []
+        seatsSelectedSlice: [],
+        paid: false
     },
     reducers: {
         setTicketsSlice: (state, action) => {
@@ -16,7 +17,11 @@ export const ticketsSlice = createSlice({
         },
         setUnavailableSeats: (state, action) => {
             state.unavailableSeats = action.payload
+        },
+        setPaid: (state, action) => {
+            console.log('sliceeee')
+            //state.paid = action.payload 
         }
     }
 });
-export const { setTicketsSlice, setSeatsSelectedSlice, setUnavailableSeats } = ticketsSlice.actions;
+export const { setTicketsSlice, setSeatsSelectedSlice, setUnavailableSeats, setPaid } = ticketsSlice.actions;

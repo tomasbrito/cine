@@ -1,15 +1,25 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { startPayTickets } from "../../store/Tickets/thunks"
 
 export const PayTickets = () => {
 
   const seatsSelectedSlice = useSelector(state => state.tickets.seatsSelectedSlice)
   const actualMovie = useSelector(state => state.movies.actualMovie)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const onPayClick = () => {
+    console.log("pagado")
+    dispatch(startPayTickets())
+    navigate('/tickets/confirmation')
+  }
 
   return (
     <>
       <div className="container bg-light">
         <div className="row mt-2 tarjeta bg-light align-items-center justify-content-between">
-          {/* datos de pago */}
+          {/* pay data */}
           <div className="col-12 col-md-6">
             <h2 className="text-dark text-center display-6 mb-3">Enter your payments detail</h2>
             <form className="p-3">
@@ -55,6 +65,7 @@ export const PayTickets = () => {
             </form>
           </div>
 
+          {/* movie data */}
           <div className="col-12 col-md-6 text-center bg-light text-dark">
             <div className="row g-0 align-items-center">
 
@@ -68,7 +79,13 @@ export const PayTickets = () => {
               <div className="col-6">
                 <img width={'150px'} className="img-fluid rounded" src={actualMovie.imgURL} alt="" />
               </div>
-              <button className="btn btn-outline-dark mt-3">Confirm</button>
+
+              <button
+                onClick={onPayClick}
+                className="btn btn-outline-dark mt-3"
+              >
+                Confirm
+              </button>
             </div>
           </div>
         </div>

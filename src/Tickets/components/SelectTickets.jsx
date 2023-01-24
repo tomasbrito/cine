@@ -18,7 +18,6 @@ export const SelectTickets = () => {
     const navigate = useNavigate()
     const { title } = useParams()
 
-    console.log('render libre')
 
     // deprecated
     const onTicketsChange = (event) => {

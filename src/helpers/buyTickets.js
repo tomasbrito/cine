@@ -1,8 +1,10 @@
 import { collection, doc, getDoc, setDoc } from "firebase/firestore/lite"
+import { useSelector } from "react-redux"
 import { FirebaseDB } from "../firebase/config"
 
 
-export const buyTickets = async (actualMovie, nTickets) => {
+
+export const buyTickets = async (actualMovie, seatsSelected) => {
     try {
 
         const id = actualMovie.id
@@ -10,16 +12,14 @@ export const buyTickets = async (actualMovie, nTickets) => {
         const docSnap = await getDoc(docRef)
 
         if (docSnap.exists()) {
-            const ticketsNow = docSnap.data().tickets
-            console.log({ ticketsNow, nTickets })
+            const unavailableSeats = docSnap.data().unavailableSeats
+            console.log(unavailableSeats)
+            if (!unavailableSeats) { throw new Error('aas') }
 
-            if (ticketsNow < nTickets) { throw new Error('No quedan entradas suficientes') }
-
-            const tickets = ticketsNow - nTickets
-            await setDoc(docRef, { tickets: tickets }, { merge: true });
-            return { ok: true, actualMovie, nTickets }
+            await setDoc(docRef, { unavailableSeats: [...unavailableSeats, ...seatsSelected] }, { merge: true });
+            return { ok: true }
         } else {
-            throw new Error('No se encontro pelicula con ese titulo ')
+            throw new Error('aa')
         }
 
     } catch (error) {
