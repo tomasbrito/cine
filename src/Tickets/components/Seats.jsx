@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { startGetSelected } from "../../store/Tickets/thunks"
+import { startGetUnavailableSeats } from "../../store/Tickets/thunks"
 import { setSeatsSelectedSlice } from "../../store/Tickets/ticketsSlice"
 
 export const Seats = () => {
@@ -18,17 +18,19 @@ export const Seats = () => {
     }, [seats])
 
     useEffect(() => {
-        dispatch(startGetSelected())
+        dispatch(startGetUnavailableSeats())
     }, [])
 
 
     useEffect(() => {
         setUnavailableSeats()
+        console.log('unaaa efect ' + unavailableSeats)
     }, [unavailableSeats])
 
+    //marcar asientos ocupados
     const setUnavailableSeats = () => {
-        console.log(unavailableSeats)
         if (unavailableSeats) {
+            clearSeats()
             unavailableSeats.forEach(element => {
                 const seat = document.getElementsByName(element)
                 seat[0].classList.add('selected')
@@ -36,14 +38,26 @@ export const Seats = () => {
         }
     }
 
+    //para desmarcar los asientos ocupados
+    const clearSeats = () => {
+        if (unavailableSeats) {
+            console.log('limpiando los viejos ' + unavailableSeats)
+            const allSeats = document.querySelectorAll('.selected')
+            console.log(allSeats)
+            allSeats.forEach(element => {
+                element.classList.remove('selected')
+            })
+
+        }
+    }
 
 
+    //marca o desmarca los asientos y los guarda en el state
     const onSeatClick = (event) => {
         const asiento = event.target
 
         if (asiento.classList.contains('selected')) return
-
-        if (unavailableSeats && unavailableSeats.includes(asiento.getAttribute('name'))) return
+        if (unavailableSeats.includes(asiento.getAttribute('name'))) return
 
         if (!asiento.classList.contains('bg-primary')) {
             if ((counter >= 6)) return;

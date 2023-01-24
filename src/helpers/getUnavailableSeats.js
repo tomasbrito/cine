@@ -10,6 +10,7 @@ export const getUnavailableSeats = async (actualMovie) => {
 
         if (docSnap.exists()) {
             const unavailableSeats = docSnap.data().unavailableSeats
+            if(unavailableSeats === undefined) return { ok: true, unavailableSeats : [] }
             return { ok: true, unavailableSeats }
         } else {
             throw new Error('No se encontro pelicula con ese titulo ')

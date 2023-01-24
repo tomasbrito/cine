@@ -5,7 +5,6 @@ import { setTicketsSlice } from '../../store/Tickets/ticketsSlice'
 import { SeatInfo } from '../../components/SeatInfo'
 import { Seats } from './Seats'
 import { useEffect } from 'react'
-import { startGetSelected } from '../../store/Tickets/thunks'
 
 
 export const SelectTickets = () => {
@@ -66,7 +65,7 @@ export const SelectTickets = () => {
     return (
         <>
 
-            <div className=" container-fluid  ">
+            <div className=" container ">
                 <div className="row align-items-center text-dark justify-content-center">
                     <div className="col-12 col-lg-4 align-self-start ">
                         <div className="comprar mt-3">

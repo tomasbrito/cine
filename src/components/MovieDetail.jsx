@@ -36,13 +36,6 @@ export const MovieDetail = () => {
 
 
       <div className="container mt-2 text-dark">
-        <div className=" mb-2 animate__animated animate__animated">
-          <button
-            onClick={onBackClick}
-            className="btn btn-primary">
-            Back to list</button>
-
-        </div>
         <div className="row mb-3">
 
           {/* Movie's image */}
@@ -88,6 +81,7 @@ export const MovieDetail = () => {
 
 
             {/* //comprar tickets */}
+            <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
             <div className="accordion accordion-flush" id="accordionFlushExample">
               <div className="accordion-item">
                 <h2 className="accordion-header" id="flush-headingOne">
@@ -134,6 +128,13 @@ export const MovieDetail = () => {
             </div>
 
           </div>
+        </div>
+        <div className=" mb-2 animate__animated animate__animated">
+          <button
+            onClick={onBackClick}
+            className="btn btn-primary">
+            Back to list</button>
+
         </div>
       </div>
     </>
