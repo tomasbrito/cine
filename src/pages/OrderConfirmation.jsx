@@ -9,7 +9,7 @@ export const OrderConfirmation = () => {
 
     return (
         <>
-            <div className="text-dark py-5 mx-4 h1">OrderConfirmation</div>
+            <div className="text-dark py-5 mx-4 h1">Thank you for your order!</div>
             <button className="btn btn-primary" onClick={onHomeClick}>
                 Home
             </button>

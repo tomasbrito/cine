@@ -13,22 +13,15 @@ export const SelectTickets = () => {
     const [counter, setcounter] = useState(0)
     const [seats, setSeats] = useState([])
     const dispatch = useDispatch()
-    const lastBuy = useSelector(state => state.movies.lastBuy)
+    const seatsSelectedSlice = useSelector(state => state.tickets.seatsSelectedSlice)
+    
     const navigate = useNavigate()
     const { title } = useParams()
-
-
-    // deprecated
-    const onTicketsChange = (event) => {
-        setSeats([])
-        setNTickets(event.target.value)
-    }
 
 
     //DEPRECATED
     //pasar a hook
     //seleccionar asientos en la tabla
-
     const selectSeat = (event) => {
         const asiento = event.target
 
@@ -57,10 +50,6 @@ export const SelectTickets = () => {
     const onBackClick = () => {
         navigate(-1)
     }
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <>
@@ -107,11 +96,10 @@ export const SelectTickets = () => {
                     <div className="col-12 col-md-1 d-grid">
                         <button
                             onClick={onNextClick}
-                            disabled={false} /* {(seats.length < nTickets)} */
+                            disabled= {(seatsSelectedSlice.length < 1)}
                             className="btn  btn-primary d-block">
                             Next
                         </button>
-
                     </div>
                 </div>
 

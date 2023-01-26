@@ -24,7 +24,6 @@ export const Seats = () => {
 
     useEffect(() => {
         setUnavailableSeats()
-        console.log('unaaa efect ' + unavailableSeats)
     }, [unavailableSeats])
 
     //marcar asientos ocupados
@@ -43,7 +42,6 @@ export const Seats = () => {
         if (unavailableSeats) {
             console.log('limpiando los viejos ' + unavailableSeats)
             const allSeats = document.querySelectorAll('.selected')
-            console.log(allSeats)
             allSeats.forEach(element => {
                 element.classList.remove('selected')
             })
