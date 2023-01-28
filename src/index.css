@@ -88,3 +88,7 @@ input[type=number] {
 .selected {
     background-color: gray;
 }
+
+.icon-check{
+    color: green;
+}

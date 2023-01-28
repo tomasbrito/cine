@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { startPayTickets } from "../../store/Tickets/thunks"
+import {startPayTickets} from '../../store/Tickets/thunks'
 
 export const PayTickets = () => {
 
@@ -11,9 +11,8 @@ export const PayTickets = () => {
   const navigate = useNavigate()
 
   const onPayClick = () => {
-    console.log("pagado")
-    // dispatch(startPayTickets())
-    // navigate('/tickets/confirmation')
+    dispatch(startPayTickets())
+    navigate('/tickets/confirmation')
   }
 
   useEffect(() => {
@@ -37,12 +36,9 @@ export const PayTickets = () => {
     })()
   }, [])
 
-
-  const enviar = (event) => {
-    event.preventDefault
-    console.log('nashe')
+  const prueba = () => {
+    console.log('prueba')
   }
-
 
   return (
     <>
@@ -55,26 +51,27 @@ export const PayTickets = () => {
 
             <h2 className="text-dark text-center display-6 mb-3">Enter your payments detail</h2>
 
-            <form className="p-3 needs-validation" noValidate>
+            <form className="p-3 needs-validation" id="form1" noValidate>
 
+              {/* First and last name */}
               <div className="row mb-3 ">
                 <div className="col-6">
-                  <input type="text" aria-label="First name" placeholder="First name" id="validationCustom01" required className="form-control" />
+                  <input defaultValue={'Tomas'} type="text" aria-label="First name" placeholder="First name" id="validationCustom01" required className="form-control" />
                 </div>
                 <div className="col-6">
-                  <input type="text" aria-label="Last name" placeholder="Last name" className="form-control" />
+                  <input defaultValue={'Brito'} type="text" aria-label="Last name" placeholder="Last name" required className="form-control" />
                 </div>
               </div>
 
 
               <div className="input-group my-3">
-                <input type="text" className="form-control" placeholder="Adress" required aria-describedby="basic-addon1" />
+                <input defaultValue={'Fake street 123'} type="text" className="form-control" placeholder="Adress" required aria-describedby="basic-addon1" />
               </div>
               <div className="input-group my-3">
-                <input type="text" className="form-control" placeholder="Country" required aria-describedby="basic-addon1" />
+                <input defaultValue={'Argentina'} type="text" className="form-control" placeholder="Country" required aria-describedby="basic-addon1" />
               </div>
               <div className="input-group my-3">
-                <input type="text" className="form-control" placeholder="State" required aria-describedby="basic-addon1" />
+                <input defaultValue={'Bs As'} type="text" className="form-control" placeholder="State" required aria-describedby="basic-addon1" />
               </div>
 
               {/* Nro tarjeta */}
@@ -82,24 +79,21 @@ export const PayTickets = () => {
                 <span className="input-group-text" id="basic-addon1">
                   <i className="bi bi-credit-card text-dark"></i>
                 </span>
-                <input type="number" className="form-control" placeholder="0000 0000 0000 0000" required aria-describedby="basic-addon1" />
+                <input defaultValue={4545676798982312} type="number" className="form-control" placeholder="0000 0000 0000 0000" required aria-describedby="basic-addon1" />
               </div>
               {/* vencimiento y codigo */}
               <div className="row  g-0">
                 <div className="col-2">
-                  <input type="text" maxLength={2} aria-label="First name" placeholder="DD" required className="form-control" />
+                  <input defaultValue={12} type="number" max={30} placeholder="DD" required className="form-control" />
                 </div>
                 <div className="col-2">
-                  <input type="text" maxLength={2} aria-label="First name" placeholder="MM" required className="form-control" />
+                  <input defaultValue={12} type="number" max={12} placeholder="MM" required className="form-control" />
+
                 </div>
                 <div className="col-2 ms-auto">
-                  <input type="text" maxLength={3} aria-label="First name" placeholder="CVV" required className="form-control" />
+                  <input defaultValue={388} type="number" min='000' max='999' placeholder="CVV" required className="form-control" />
                 </div>
               </div>
-              <button className="btn btn-primary mt-2"
-                type="submit">
-                Confirm
-              </button>
             </form>
           </div>
 
@@ -118,9 +112,10 @@ export const PayTickets = () => {
                 <img width={'150px'} className="img-fluid rounded" src={actualMovie.imgURL} alt="" />
               </div>
               <button
-                onClick={enviar}
                 className="btn btn-outline-dark mt-3"
                 type="submit"
+                form="form1"
+                onClick={onPayClick}
               >
                 Confirm
               </button>
