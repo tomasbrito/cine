@@ -8,15 +8,17 @@ export const Movies = () => {
   const dispatch = useDispatch()
 
   const { moviesList } = useSelector(state => state.movies)
+  const { isLoading } = useSelector(state => state.movies)
 
   useEffect(() => {
     dispatch(startGetMovies())
   }, [])
 
+
+
   return (
     <>
-      <div className="container">
-
+      <div className="container mb-3">
         <div className="row row-cols-2 row-cols-sm-3 row-cols-md-6">
 
           {moviesList.map(movie => (

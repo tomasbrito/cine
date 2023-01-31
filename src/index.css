@@ -92,3 +92,7 @@ input[type=number] {
 .icon-check{
     color: green;
 }
+
+.loader{
+    background-color: rgba(137, 137, 137, 0.536);
+}

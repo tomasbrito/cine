@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import {startPayTickets} from '../../store/Tickets/thunks'
+import { startPayTickets } from '../../store/Tickets/thunks'
 
 export const PayTickets = () => {
 
@@ -11,6 +11,8 @@ export const PayTickets = () => {
   const navigate = useNavigate()
 
   const onPayClick = () => {
+    const form = document.getElementById('form1')
+    if (!form.checkValidity()) return
     dispatch(startPayTickets())
     navigate('/tickets/confirmation')
   }
@@ -36,8 +38,29 @@ export const PayTickets = () => {
     })()
   }, [])
 
-  const prueba = () => {
-    console.log('prueba')
+  const validateNumber = (event) => {
+    if (!/^[0-9]+$/i.test(event.key)) {
+      if (event.key !== 'Backspace') {
+        event.preventDefault()
+      } else {
+        event.target.value = event.target.value.trim()
+      }
+
+    } else {
+      console.log(event.target.value.length)
+      if (event.target.value.length === 4 || event.target.value.length === 9 || event.target.value.length === 14) {
+        event.target.value = event.target.value + ' '
+      }
+    }
+  }
+
+  const validateCvv = (event) => {
+
+    if (!/^[0-9]+$/i.test(event.key)) {
+      if (event.key !== 'Backspace') {
+        event.preventDefault()
+      }
+    }
   }
 
   return (
@@ -65,7 +88,7 @@ export const PayTickets = () => {
 
 
               <div className="input-group my-3">
-                <input defaultValue={'Fake street 123'} type="text" className="form-control" placeholder="Adress" required aria-describedby="basic-addon1" />
+                <input type="text" className="form-control" placeholder="Adress" required aria-describedby="basic-addon1" />
               </div>
               <div className="input-group my-3">
                 <input defaultValue={'Argentina'} type="text" className="form-control" placeholder="Country" required aria-describedby="basic-addon1" />
@@ -79,20 +102,50 @@ export const PayTickets = () => {
                 <span className="input-group-text" id="basic-addon1">
                   <i className="bi bi-credit-card text-dark"></i>
                 </span>
-                <input defaultValue={4545676798982312} type="number" className="form-control" placeholder="0000 0000 0000 0000" required aria-describedby="basic-addon1" />
+                <input onKeyDown={validateNumber} maxLength={19} minLength={19} type="text" className="form-control" placeholder="0000 0000 0000 0000" required aria-describedby="basic-addon1" />
               </div>
               {/* vencimiento y codigo */}
               <div className="row  g-0">
-                <div className="col-2">
-                  <input defaultValue={12} type="number" max={30} placeholder="DD" required className="form-control" />
-                </div>
-                <div className="col-2">
-                  <input defaultValue={12} type="number" max={12} placeholder="MM" required className="form-control" />
 
+                <div className="col-2">
+                  <select className="form-select" id="validationCustom04" required>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
                 </div>
+
+                <div className="col-3">
+                  <select className="form-select" id="validationCustom05" required>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                    <option>2031</option>
+                    <option>2032</option>
+                    <option>2033</option>
+                    <option>2034</option>
+                    <option>2035</option>
+                  </select>
+                </div>
+
                 <div className="col-2 ms-auto">
-                  <input defaultValue={388} type="number" min='000' max='999' placeholder="CVV" required className="form-control" />
+                  <input onKeyDown={validateCvv} type="text" maxLength={3} minLength={3} placeholder="CVV" required className="form-control" />
                 </div>
+
               </div>
             </form>
           </div>

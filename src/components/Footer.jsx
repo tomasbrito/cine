@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className="container-fluid footer text-light">
                 <div className="row text-center align-items-center justify-content-between p-3">
                     <div className="col-2 ">
-                        <i className="bi bi-film h2">Marca</i> 
+                        <i className="bi bi-film h2"></i> 
                     </div>
                     <div className="col-3 ">
                         <a href="" className="text-decoration-none d-block">Link uno</a>

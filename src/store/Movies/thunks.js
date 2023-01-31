@@ -1,11 +1,13 @@
-import { loadingMovies, setActualMovie, setLastBuy, setMovies } from "./moviesSlice"
+import {  setActualMovie, setLastBuy, setMovies } from "./moviesSlice"
 import { loadMovies } from '../../helpers/loadMovies'
 import { getMovieByTitle } from "../../helpers/getMovieByTitle"
 import { buyTickets } from "../../helpers/buyTickets"
+import { setUnavailableSeats } from "../Tickets/ticketsSlice"
 
 export const startGetMovies = () => {
     return async (dispatch) => {
         // dispatch(loadingMovies())
+        dispatch(setUnavailableSeats(null))
         const resp = await loadMovies()
         dispatch(setMovies(resp))
     }

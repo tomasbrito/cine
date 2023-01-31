@@ -14,7 +14,7 @@ export const SelectTickets = () => {
     const [seats, setSeats] = useState([])
     const dispatch = useDispatch()
     const seatsSelectedSlice = useSelector(state => state.tickets.seatsSelectedSlice)
-    
+
     const navigate = useNavigate()
     const { title } = useParams()
 
@@ -96,7 +96,7 @@ export const SelectTickets = () => {
                     <div className="col-12 col-md-1 d-grid">
                         <button
                             onClick={onNextClick}
-                            disabled= {(seatsSelectedSlice.length < 1)}
+                            disabled={(seatsSelectedSlice.length < 1)}
                             className="btn  btn-primary d-block">
                             Next
                         </button>
@@ -104,8 +104,14 @@ export const SelectTickets = () => {
                 </div>
 
             </div>
-
-
+            <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
 
         </>
     )

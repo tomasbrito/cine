@@ -34,7 +34,6 @@ export const MovieDetail = () => {
     <>
 
 
-
       <div className="container mt-2 text-dark">
         <div className="row mb-3">
 
@@ -91,8 +90,6 @@ export const MovieDetail = () => {
                 <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                   <div className="accordion-body">
                     <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
-                    <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
-                    <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
                   </div>
                 </div>
               </div>
@@ -104,8 +101,6 @@ export const MovieDetail = () => {
                 </h2>
                 <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                   <div className="accordion-body">
-                    <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
-                    <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
                     <button onClick={onBuyClick} className="btn btn-primary mx-2">Buy</button>
                   </div>
                 </div>
@@ -119,7 +114,8 @@ export const MovieDetail = () => {
           <button
             onClick={onBackClick}
             className="btn btn-primary">
-            Back to list</button>
+            Back to list
+          </button>
 
         </div>
       </div>

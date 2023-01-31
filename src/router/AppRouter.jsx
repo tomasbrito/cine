@@ -11,29 +11,33 @@ import { Navbar } from "../ui/Navbar"
 
 export const AppRouter = () => {
 
-    const { isLoadingMovies } = useSelector((state) => state.movies)
+    const { isLoading } = useSelector((state) => state.movies)
+
+    {
+        if (isLoading ) {
+            return <Loader />
+        }
+
+    }
 
     return (
         <>
 
-            {(isLoadingMovies) ? <Loader /> : <>
+            <Navbar />
+            <Routes>
+                <Route path="/Movies" element={<Movies />} />
+                <Route path="/MovieDetail/:title" element={<MovieDetail />} />
+                <Route path="/tickets/*" element={<TicketsRouter />} />
 
-                <Navbar/>
-                <Routes>
-                    <Route path="/Movies" element={<Movies />} />
-                    <Route path="/MovieDetail/:title" element={<MovieDetail />} />
-                    <Route path="/tickets/*" element={<TicketsRouter/>} />
-
-                    <Route path="/" element={<Navigate to={'/Movies'} />} />
-                    <Route path="/*" element={<NotFounded />} />
-                </Routes>
-                <Footer/>
-
-            </>}
-
-
+                <Route path="/" element={<Navigate to={'/Movies'} />} />
+                <Route path="/*" element={<NotFounded />} />
+            </Routes>
+            <Footer />
 
         </>
+
+
+
     )
 
 }
